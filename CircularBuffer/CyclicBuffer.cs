@@ -1,24 +1,8 @@
 ﻿namespace CircularBuffer;
 
-// internal class Node<T>
-// {
-//     internal required T Value;
-//     public Node<T>? Next;
-//
-//     public Node(T value)
-//     {
-//         this.Value = value;
-//     }
-//
-// }
-
 public class CyclicBufferContainer<T>
 {
     private int Size { get; set; }
-
-    // Obs: it is not an absolute value
-    private int CurrIteration { get; set; } = 0; // why get and set ?
-
     private T[] Buffer { get; set; }
 
     private int Head = 0;
@@ -52,8 +36,7 @@ public class CyclicBufferContainer<T>
         return Buffer[idx];
 
     }
-
-    // It means that it could be full aswell 
+    
     private bool IsEmpty() => Head == Tail;
     
 }
