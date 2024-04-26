@@ -41,8 +41,16 @@ public class CyclicBufferContainer<T>
     {
         if (IsEmpty())
             return default(T); // what is the default of T in some possible cases
+
+        if (Tail == Size - 1)
+        {
+            Tail = 0;
+        }
+
+        {
+            Tail++;
+        }
         
-        Tail++;
         return Buffer[Tail];
     }
     private bool IsEmpty() => Head == Tail;
